@@ -16,20 +16,20 @@ DomElement.prototype.createElement = function(){
     document.body.appendChild(element);
   }
   if(this.selector[0] === '#'){
-    element = document.createElement('div');
+    element = document.createElement('p');
     element.id = 'best';
     document.body.appendChild(element);
   }
-  element.style.cssText = `height: 100px;
-                          width: 100px;
-                          background-color: red;
-                          font-size: 16px;
+  element.style.cssText = `height: ${this.height}px;
+                          width: ${this.width}px;
+                          background: ${this.bg};
+                          font-size: ${this.fontSize}px;
                           `;
   element.textContent = 'redSquare';
   return element;
 };
 
-let redSquare = new DomElement('.block');
+let redSquare = new DomElement('.block', 500, 500, 'green', 22);
 redSquare.createElement();
 
 
