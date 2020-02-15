@@ -13,12 +13,12 @@ DomElement.prototype.createElement = function(text){
   let element;
   if(this.selector[0] === '.'){
     element = document.createElement('div');
-    element.setAttribute('class', this.selector);
+    element.classList.add(this.selector.substring(1));
     document.body.appendChild(element);
   }
   if(this.selector[0] === '#'){
     element = document.createElement('p');
-    element.setAttribute('id',this.selector);
+    element.id = this.selector.substring(1);
     document.body.appendChild(element);
   }
   element.style.cssText = `height: ${this.height}px;
@@ -30,7 +30,10 @@ DomElement.prototype.createElement = function(text){
   return element;
 };
 
-const redSquare = new DomElement('.block', 500, 500, 'green', 22, 'redSquare');
+const redSquare = new DomElement('.block', 500, 500, 'red', 22, 'redSquare');
+
 redSquare.createElement();
 
+const greenSquare = new DomElement('#best', 150, 150, 'green', 16, 'jhjkh');
 
+greenSquare.createElement();
